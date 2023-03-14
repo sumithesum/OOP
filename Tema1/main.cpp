@@ -23,6 +23,13 @@ public :
     ~joc(){
         delete[] name;
     }
+    joc(){
+    this->name = new char[1];
+    strcpy(this->name,"");
+    this->pret = 0;
+    this->cantitate = 0;
+    this->rating =0.0;
+}
 
     joc (const joc &a){
         this->pret = a.pret;
@@ -86,11 +93,10 @@ public :
         return 0;
     }
     friend std::istream& operator>>(std::istream &is, joc &j) {
-
+        cout << "Numele Jocului:";
         char buf[100];
         is >> buf;
         j.setName(buf);
-
         is >> j.pret>>j.cantitate>>j.rating>>j.cantitate;
 
         return is;
@@ -102,7 +108,7 @@ public :
             return os;
         }
 
-        os << "Student: name: " << s.name << " pret: " << s.pret << " rating: " << s.rating <<" cantitate:" <<s.cantitate <<  '\n';
+        os << "Numele Jocului: " << s.name << " pret: " << s.pret << " rating: " << s.rating <<" cantitate:" <<s.cantitate <<  '\n';
 
         return os;
     }
@@ -124,7 +130,48 @@ public:
         delete[] listaJocuri;
     }
 };
+void adaugareNJocuri(){
+    int j = 0;
+    cout <<endl<<"Cate jocuri doriti sa adaugati?"<<'\n';
+    int nrJocuri; cin >> nrJocuri;
+    joc * listaJocuri = new joc[nrJocuri * sizeof(joc)];
+    for (int i = 1;i <= nrJocuri ;i++)
+    {
+
+        cin >> listaJocuri[i];
+
+    }
+   for (int i = 1;i <= nrJocuri ;i++)
+    {
+
+        cout  << listaJocuri[i];
+
+    }
+}
+
+void meniuPrincipal(){
+    int optiune;
+    cout<<"Alegeti optiunea pe care o doriti:" <<endl;
+    cout<<" 1.Adaugati un nou  joc."<<endl;
+    cout<<" 2.Adauga n jocuri."<<endl;
+    cout<<" 3.Oprire"<<endl;
+    cout << "Alegeti ce optiune va doriti:";cin >> optiune;
+    switch(optiune){
+        case 1:
+
+            break;
+        case 2:
+            adaugareNJocuri();
+            break;
+        case 3:
+
+            break;
+    }
+
+}
+
 
 int main(){
+    meniuPrincipal();
     return 0;
 }
