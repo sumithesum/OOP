@@ -74,7 +74,7 @@ public :
         this->cantitate = cantitatea;
     }
 
-    void operator= (const joc &s) {
+    joc& operator= (const joc &s) {
         delete[] name;
 
         int len = strlen(s.name);
@@ -84,6 +84,7 @@ public :
         this->pret = s.pret;
         this->rating = s.rating;
         this->cantitate = s.cantitate;
+        return *this;
     }
     bool operator== (const joc &s) const {
         if (s.pret == this->pret && strcmp(this->name, s.name) == 0 && this->rating == s.rating && this->cantitate == s.cantitate)
@@ -158,7 +159,7 @@ public:
         delete[] listaJocuri;
         delete[] name;
     }
-    void operator= (const Magazin &s) {
+    Magazin& operator= (const Magazin &s) {
         delete[] name;
         delete[] listaJocuri;
 
@@ -170,7 +171,7 @@ public:
         this->listaJocuri = new joc[nrJocuri * sizeof(joc)];
         for (int i = 0; i < this->nrJocuri; i++)
             this->listaJocuri[i] = s.listaJocuri[i];
-
+        return *this;
 
     }
     void setName( const char *name_){
@@ -211,7 +212,7 @@ public:
             cout << "Jocul cu nr "<<i+1<<" " <<endl;
             is >> lista[i];
         }
-        cout <<endl<< 100<<endl ;
+        cout <<endl<<endl ;
         j.setListaJocuri(lista);
         delete[] lista;
         return is;
