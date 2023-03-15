@@ -3,7 +3,7 @@
 #include <fstream>
 using namespace std;
 
-ifstream fin("tastatura.txt");
+ifstream  fin("tastatura.txt");
 
 class joc {
 private:
@@ -60,18 +60,18 @@ public :
         name = new char[len+1];
         strcpy(name,name_);
     }
-    void setPret(const int pret){
-        this->pret = pret;
+    void setPret(const int pretu){
+        this->pret = pretu;
     }
-    void setRating(float rating){
-        if (rating > 10.0)
-            rating = 10.0;
-        if (rating < 0.0)
-            rating = 0.0;
-        this->rating = rating;
+    void setRating(float ratingu){
+        if (ratingu > 10.0)
+            ratingu = 10.0;
+        if (ratingu < 0.0)
+            ratingu = 0.0;
+        this->rating = ratingu;
     }
-    void setCantitiate(const unsigned int cantitate){
-        this->cantitate = cantitate;
+    void setCantitiate(const unsigned int cantitatea){
+        this->cantitate = cantitatea;
     }
 
     void operator= (const joc &s) {
@@ -87,13 +87,13 @@ public :
     }
     bool operator== (const joc &s) const {
         if (s.pret == this->pret && strcmp(this->name, s.name) == 0 && this->rating == s.rating && this->cantitate == s.cantitate)
-            return 1;
-        return 0;
+            return true;
+        return false;
     }
     bool operator!= (const joc &s) const {
         if (!(s.pret == this->pret && strcmp(this->name, s.name) == 0 && this->rating == s.rating && this->cantitate == s.cantitate))
-            return 1;
-        return 0;
+            return true;
+        return false;
     }
     friend std::istream& operator>>(std::istream &is, joc &j) {
         cout << "Numele Jocului:";
@@ -182,14 +182,14 @@ public:
 
     }
 
-    void setListaJocuri(const joc *listaJocuri){
+    void setListaJocuri(const joc *listaJocurii){
         delete[] this->listaJocuri;
         this->listaJocuri = new joc[nrJocuri * sizeof(joc)];
         for (int i = 0; i < this->nrJocuri; i++)
-            this->listaJocuri[i] = listaJocuri[i];
+            this->listaJocuri[i] = listaJocurii[i];
     }
-    void setNrJocuri(const int nrJocuri){
-        this->nrJocuri = nrJocuri;
+    void setNrJocuri(const int nrJocurii){
+        this->nrJocuri = nrJocurii;
     }
     void adaugareJoc(const joc &s) {
         joc *listaJocuri1 = new joc[nrJocuri * sizeof(joc)];
