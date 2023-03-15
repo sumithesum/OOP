@@ -162,18 +162,20 @@ public:
         delete[] name;
     }
     Magazin& operator= (const Magazin &s) {
+        if(*this != s) {
 
-        delete[] name;
-        delete[] listaJocuri;
+            delete[] name;
+            delete[] listaJocuri;
 
-        int len = strlen(s.name);
-        name = new char[len+1];
-        strcpy(name,s.name);
+            int len = strlen(s.name);
+            name = new char[len + 1];
+            strcpy(name, s.name);
 
-        this->nrJocuri = s.nrJocuri;
-        this->listaJocuri = new joc[nrJocuri * sizeof(joc)];
-        for (int i = 0; i < this->nrJocuri; i++)
-            this->listaJocuri[i] = s.listaJocuri[i];
+            this->nrJocuri = s.nrJocuri;
+            this->listaJocuri = new joc[nrJocuri * sizeof(joc)];
+            for (int i = 0; i < this->nrJocuri; i++)
+                this->listaJocuri[i] = s.listaJocuri[i];
+        }
         return *this;
 
     }
