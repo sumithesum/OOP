@@ -12,7 +12,7 @@ private:
     int pret;
     char *name;
 public :
-    joc (int pret , char *name,float rating,int cantitate){
+    joc (const int pret ,const char *name,float rating, const int cantitate){
         this->pret = pret;
         this->name = new char[strlen(name)+1];
         strcpy(this->name,name);
@@ -107,7 +107,7 @@ public :
             j.setRating(0.0);
         return is;
     }
-    friend std::ostream& operator<<(std::ostream &os, joc &s) {
+    friend std::ostream& operator<<(std::ostream &os,const joc &s) {
 
         if (!s.name) {
             os << "Not initialized\n";
@@ -129,15 +129,24 @@ private:
     int nrJocuri;
     joc *listaJocuri ;
 public:
+    Magazin(const Magazin &s){
+        this->nrJocuri = s.nrJocuri;
+        this->name = new char[strlen(s.name)+1];
+        strcpy(this->name,s.name);
+        delete[] this->listaJocuri;
+        this->listaJocuri = new joc[nrJocuri * sizeof(joc)];
+        for (int i = 0; i < this->nrJocuri; i++)
+            this->listaJocuri[i] = listaJocuri[i];
+
+    }
     Magazin() {
         this->name = new char[1];
         strcpy(this->name, "");
         this->nrJocuri =0;
         this->listaJocuri = new joc[0];
-
     }
 
-    Magazin(char *name,int nrJocuri, joc *listaJocuri){
+    Magazin(const char *name,const int nrJocuri, const joc *listaJocuri){
         this->nrJocuri = nrJocuri;
         this->listaJocuri = new joc[nrJocuri* sizeof(joc)];
         for(int i = 0;i <nrJocuri ;i++)
@@ -149,7 +158,21 @@ public:
         delete[] listaJocuri;
         delete[] name;
     }
+    void operator= (const Magazin &s) {
+        delete[] name;
+        delete[] listaJocuri;
 
+        int len = strlen(s.name);
+        name = new char[len+1];
+        strcpy(name,s.name);
+
+        this->nrJocuri = s.nrJocuri;
+        this->listaJocuri = new joc[nrJocuri * sizeof(joc)];
+        for (int i = 0; i < this->nrJocuri; i++)
+            this->listaJocuri[i] = s.listaJocuri[i];
+
+
+    }
     void setName( const char *name_){
         delete[] name;
 
@@ -159,7 +182,7 @@ public:
 
     }
 
-    void setListaJocuri( joc *listaJocuri){
+    void setListaJocuri(const joc *listaJocuri){
         delete[] this->listaJocuri;
         this->listaJocuri = new joc[nrJocuri * sizeof(joc)];
         for (int i = 0; i < this->nrJocuri; i++)
@@ -168,7 +191,7 @@ public:
     void setNrJocuri(const int nrJocuri){
         this->nrJocuri = nrJocuri;
     }
-    void adaugareJoc(joc &s) {
+    void adaugareJoc(const joc &s) {
         joc *listaJocuri1 = new joc[nrJocuri * sizeof(joc)];
         for (int i = 0; i < this->nrJocuri; i++)
             listaJocuri1[i] = this->listaJocuri[i];
@@ -208,7 +231,7 @@ public:
         j.setListaJocuri(lista);
         return is;
     }
-    friend std::ostream& operator<<(std::ostream &os, Magazin &s) {
+    friend std::ostream& operator<<(std::ostream &os,const Magazin &s) {
 
         if (!s.name) {
             os << "Not initialized\n";
