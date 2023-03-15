@@ -75,6 +75,8 @@ public :
     }
 
     joc& operator= (const joc &s) {
+        if (s == *this)
+            return *this;
         delete[] name;
 
         int len = strlen(s.name);
