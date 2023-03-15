@@ -156,7 +156,9 @@ public:
         int len = strlen(name_);
         name = new char[len+1];
         strcpy(name,name_);
+
     }
+
     void setListaJocuri( joc *listaJocuri){
         delete[] this->listaJocuri;
         this->listaJocuri = new joc[nrJocuri * sizeof(joc)];
