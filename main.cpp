@@ -70,7 +70,7 @@ public :
             ratingu = 0.0;
         this->rating = ratingu;
     }
-    void setCantitiate(const unsigned int cantitatea){
+    void setCantitate(const unsigned int cantitatea){
         this->cantitate = cantitatea;
     }
 
@@ -202,11 +202,6 @@ public:
             listaJocuri[i] = listaJocuri1[i];
         listaJocuri1[nrJocuri - 1] = s;
     }
-    void afisareJocuri() const{
-        for (int i = 0; i < this->nrJocuri;i++) {
-            cout << "Jocul nr " << i+1 << ':' << this->listaJocuri[i] << endl;
-        }
-    }
     joc *getListaJocuri()const{
         return listaJocuri;
     }
@@ -249,6 +244,24 @@ public:
 
 
 };
+
+void degeaba(){
+    joc x;
+    x.setPret(1);
+    x.setCantitate(1);
+    x.setRating(2.0);
+    x.getRating();
+    x.getName();
+    x.getCantitate();
+    x.getPret();
+    Magazin y;
+    y.setNrJocuri(1);
+    y.adaugareJoc(x);
+    y.getName();
+    y.getListaJocuri();
+    y.getNrJocuri();
+
+}
 
 void adaugareMagazin(){
     Magazin j1;
