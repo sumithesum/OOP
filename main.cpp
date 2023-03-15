@@ -53,7 +53,7 @@ public :
     float getRating() const{
         return rating;
     }
-    void *setName( const char *name_){
+    void setName( const char *name_){
         delete[] name;
 
         int len = strlen(name_);
@@ -137,7 +137,7 @@ public:
 
     }
 
-    Magazin(char *name,unsigned  int nrJocuri, joc *listaJocuri){
+    Magazin(char *name,int nrJocuri, joc *listaJocuri){
         this->nrJocuri = nrJocuri;
         this->listaJocuri = new joc[nrJocuri* sizeof(joc)];
         for(int i = 0;i <nrJocuri ;i++)
@@ -157,7 +157,7 @@ public:
         name = new char[len+1];
         strcpy(name,name_);
     }
-    joc *setListaJocuri( joc *listaJocuri){
+    void setListaJocuri( joc *listaJocuri){
         delete[] this->listaJocuri;
         this->listaJocuri = new joc[nrJocuri * sizeof(joc)];
         for (int i = 0; i < this->nrJocuri; i++)
