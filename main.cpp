@@ -191,17 +191,6 @@ public:
     void setNrJocuri(const int nrJocurii){
         this->nrJocuri = nrJocurii;
     }
-    void adaugareJoc(const joc &s) {
-        joc *listaJocuri1 = new joc[nrJocuri * sizeof(joc)];
-        for (int i = 0; i < this->nrJocuri; i++)
-            listaJocuri1[i] = this->listaJocuri[i];
-        this->nrJocuri++;
-        delete[] listaJocuri;
-        listaJocuri = new joc[nrJocuri * sizeof(joc)];
-        for (int i = 0; i < this->nrJocuri - 1; i++)
-            listaJocuri[i] = listaJocuri1[i];
-        listaJocuri1[nrJocuri - 1] = s;
-    }
     joc *getListaJocuri()const{
         return listaJocuri;
     }
@@ -256,7 +245,6 @@ void degeaba(){
     x.getPret();
     Magazin y;
     y.setNrJocuri(1);
-    y.adaugareJoc(x);
     y.getName();
     y.getListaJocuri();
     y.getNrJocuri();
