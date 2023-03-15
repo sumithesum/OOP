@@ -36,8 +36,8 @@ public :
 
     joc (const joc &a){
         this->pret = a.pret;
-        this->name = new char[strlen(name)+1];
-        strcpy(this->name,name);
+        this->name = new char[strlen(a.name)+1];
+        strcpy(this->name,a.name);
         this->rating = a.rating;
         this->cantitate = a.cantitate;
     }
