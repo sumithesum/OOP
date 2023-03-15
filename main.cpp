@@ -105,7 +105,7 @@ public :
         if (j.getRating() > 10.0)
             j.setRating(10.0);
         if (j.getRating() < 0.0)
-            j.setRating(0.0);
+            j.rating =0.0;
         return is;
     }
     friend std::ostream& operator<<(std::ostream &os,const joc &s) {
@@ -115,7 +115,7 @@ public :
             return os;
         }
 
-        os << "Numele Jocului: " << s.name << "; pret: " << s.pret << "; rating: " << s.rating <<"; cantitate:" <<s.cantitate <<  '\n';
+        os << "Numele Jocului: " << s.name << "; pret: " << s.pret <<"; cantitate:" <<s.cantitate << "; rating: " << s.rating  <<  '\n';
 
 
         return os;
@@ -272,14 +272,14 @@ void adaugareNJocuri(){
     cout <<endl<<"Cate jocuri doriti sa adaugati?"<<'\n';
     int nrJocuri; fin >> nrJocuri;
     joc * listaJocuri = new joc[nrJocuri * sizeof(joc)];
-    for (int i = 1;i <= nrJocuri ;i++)
+    for (int i = 0;i < nrJocuri ;i++)
     {
 
         fin >> listaJocuri[i];
 
     }
     cout << endl<<endl;
-    for (int i = 1;i <= nrJocuri ;i++)
+    for (int i = 0;i < nrJocuri ;i++)
     {
 
         cout  << listaJocuri[i] <<endl;
