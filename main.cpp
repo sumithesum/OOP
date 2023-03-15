@@ -229,6 +229,7 @@ public:
         }
         cout <<endl<< 100<<endl ;
         j.setListaJocuri(lista);
+        delete[] lista;
         return is;
     }
     friend std::ostream& operator<<(std::ostream &os,const Magazin &s) {
