@@ -136,7 +136,7 @@ public:
         delete[] this->listaJocuri;
         this->listaJocuri = new joc[nrJocuri * sizeof(joc)];
         for (int i = 0; i < this->nrJocuri; i++)
-            this->listaJocuri[i] = listaJocuri[i];
+            this->listaJocuri[i] = s.listaJocuri[i];
 
     }
     Magazin() {
