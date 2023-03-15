@@ -150,7 +150,7 @@ public:
         delete[] name;
     }
 
-    char setName( const char *name_){
+    void setName( const char *name_){
         delete[] name;
 
         int len = strlen(name_);
