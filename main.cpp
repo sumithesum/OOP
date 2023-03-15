@@ -161,21 +161,6 @@ public:
         delete[] listaJocuri;
         delete[] name;
     }
-    Magazin& operator= (const Magazin &s) {
-        delete[] name;
-        delete[] listaJocuri;
-
-        int len = strlen(s.name);
-        name = new char[len+1];
-        strcpy(name,s.name);
-
-        this->nrJocuri = s.nrJocuri;
-        this->listaJocuri = new joc[nrJocuri * sizeof(joc)];
-        for (int i = 0; i < this->nrJocuri; i++)
-            this->listaJocuri[i] = s.listaJocuri[i];
-        return *this;
-
-    }
     void setName( const char *name_){
         delete[] name;
 
