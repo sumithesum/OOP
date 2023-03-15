@@ -75,7 +75,7 @@ public :
     }
 
     joc& operator= (const joc &s) {
-        if (s == *this)
+        if (&s == this)
             return *this;
         delete[] name;
 
