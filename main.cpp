@@ -319,6 +319,7 @@ int meniuPrincipal(){
             adaugareMagazin();
             break;
         case 4:
+            degeaba();
             cout << endl;
             cout << "Paaaaaaaaaaaaaaaaaaaa";
             return 0;
