@@ -182,13 +182,13 @@ public:
             cout << "Jocul nr " << i+1 << ':' << this->listaJocuri[i] << endl;
         }
     }
-    joc *getListaJocuri(){
+    joc *getListaJocuri()const{
         return listaJocuri;
     }
-    char *getName(){
+    char *getName()const{
         return name;
     }
-    int getNrJocuri(){
+    int getNrJocuri()const{
         return nrJocuri;
     }
     friend std::istream& operator>>(std::istream &is, Magazin &j) {
