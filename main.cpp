@@ -221,7 +221,7 @@ public:
     void setNrJocuri(const int nrJocurii){
         this->nrJocuri = nrJocurii;
     }
-    joc *getListaJocuri()const{
+    const joc *getListaJocuri()const{
         return listaJocuri;
     }
     char *getName()const{
